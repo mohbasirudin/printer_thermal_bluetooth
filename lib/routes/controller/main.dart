@@ -86,6 +86,9 @@ class ConMain extends GetxController {
           .then(
         (value) {
           if (value) {
+            name.value = "";
+            macAddress = "";
+            isConnected.value = !value;
             snackbar(
               context: context,
               message: "Disconnected",

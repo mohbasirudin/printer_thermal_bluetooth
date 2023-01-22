@@ -61,8 +61,15 @@ class PageMain extends GetView<ConMain> {
           }
         },
       ),
-      bottomNavigationBar: _viewBottom(
-        context: context,
+      bottomNavigationBar: Obx(
+        () {
+          return Visibility(
+            visible: controller.isConnected.value,
+            child: _viewBottom(
+              context: context,
+            ),
+          );
+        },
       ),
     );
   }
@@ -143,7 +150,11 @@ class PageMain extends GetView<ConMain> {
             ),
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.print(
+                    context: context,
+                  );
+                },
                 child: const Text(
                   "Test Print",
                 ),
