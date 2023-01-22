@@ -61,7 +61,9 @@ class PageMain extends GetView<ConMain> {
           }
         },
       ),
-      bottomNavigationBar: _viewBottom(),
+      bottomNavigationBar: _viewBottom(
+        context: context,
+      ),
     );
   }
 
@@ -94,7 +96,10 @@ class PageMain extends GetView<ConMain> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  controller.connect(device: device);
+                  controller.connect(
+                    context: context,
+                    device: device,
+                  );
                 },
                 child: const Text(
                   "Connect",
@@ -111,7 +116,9 @@ class PageMain extends GetView<ConMain> {
     );
   }
 
-  Widget _viewBottom() {
+  Widget _viewBottom({
+    required BuildContext context,
+  }) {
     return BottomAppBar(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -121,7 +128,11 @@ class PageMain extends GetView<ConMain> {
           children: [
             Expanded(
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.disconnect(
+                    context: context,
+                  );
+                },
                 child: const Text(
                   "Disconnect",
                 ),
