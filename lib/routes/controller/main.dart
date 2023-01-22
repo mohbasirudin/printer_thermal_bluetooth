@@ -57,7 +57,7 @@ class ConMain extends GetxController {
             snackbar(
               context: context,
               message: "Connected",
-              isError: true,
+              isError: false,
             );
           } else {
             snackbar(
@@ -71,41 +71,6 @@ class ConMain extends GetxController {
       snackbar(
         context: context,
         message: "Connect",
-      );
-    }
-  }
-
-  void disconnect({
-    required BuildContext context,
-  }) async {
-    try {
-      await PrinterManager.instance
-          .disconnect(
-        type: PrinterType.bluetooth,
-      )
-          .then(
-        (value) {
-          if (value) {
-            name.value = "";
-            macAddress = "";
-            isConnected.value = !value;
-            snackbar(
-              context: context,
-              message: "Disconnected",
-              isError: true,
-            );
-          } else {
-            snackbar(
-              context: context,
-              message: "Disconnect",
-            );
-          }
-        },
-      );
-    } catch (e) {
-      snackbar(
-        context: context,
-        message: "Disconnect",
       );
     }
   }
@@ -157,6 +122,7 @@ class ConMain extends GetxController {
         ),
       ),
       backgroundColor: isError ? Colors.red : Colors.green,
+      duration: const Duration(seconds: 1),
     );
     ScaffoldMessenger.of(context).showSnackBar(s);
   }

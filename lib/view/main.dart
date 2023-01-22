@@ -131,36 +131,15 @@ class PageMain extends GetView<ConMain> {
         padding: const EdgeInsets.symmetric(
           horizontal: 12,
         ),
-        child: Row(
-          children: [
-            Expanded(
-              child: OutlinedButton(
-                onPressed: () {
-                  controller.disconnect(
-                    context: context,
-                  );
-                },
-                child: const Text(
-                  "Disconnect",
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 6,
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  controller.print(
-                    context: context,
-                  );
-                },
-                child: const Text(
-                  "Test Print",
-                ),
-              ),
-            ),
-          ],
+        child: ElevatedButton(
+          onPressed: () {
+            controller.print(
+              context: context,
+            );
+          },
+          child: const Text(
+            "Test Print",
+          ),
         ),
       ),
     );
