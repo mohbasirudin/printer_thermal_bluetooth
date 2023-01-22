@@ -61,6 +61,7 @@ class PageMain extends GetView<ConMain> {
           }
         },
       ),
+      bottomNavigationBar: _viewBottom(),
     );
   }
 
@@ -107,6 +108,39 @@ class PageMain extends GetView<ConMain> {
         return const Divider();
       },
       itemCount: controller.devices.length,
+    );
+  }
+
+  Widget _viewBottom() {
+    return BottomAppBar(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: OutlinedButton(
+                onPressed: () {},
+                child: const Text(
+                  "Disconnect",
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 6,
+            ),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  "Test Print",
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
