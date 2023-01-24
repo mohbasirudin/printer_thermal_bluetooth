@@ -82,6 +82,7 @@ class ConMain extends GetxController {
       CapabilityProfile profile = await CapabilityProfile.load();
       Generator generator = Generator(PaperSize.mm58, profile);
       List<int> bytes = [];
+      String text = "Lorem Ipsum is simply dummy text";
 
       bytes += generator.text(
         "Printer Bluetooth",
@@ -91,7 +92,13 @@ class ConMain extends GetxController {
         ),
       );
       bytes += generator.text(
-        DateTime.now().toString(),
+        // DateTime.now().toString(),
+        "Lorem Ipsum is simply dummy text  of the pr inting and typesetting industry.",
+        styles: PosStyles(
+          align: PosAlign.left,
+          // bold: true,
+          fontType: PosFontType.fontB,
+        ),
       );
       bytes += generator.text(
         "__mohbasirudin",
